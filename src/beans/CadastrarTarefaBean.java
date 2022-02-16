@@ -5,7 +5,7 @@ package beans;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
-import domain.Tarefa;
+import domains.Tarefa;
 
 @ManagedBean
 @RequestScoped
