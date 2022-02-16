@@ -5,7 +5,7 @@
              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
 	version="2.1">
 
-	<persistence-unit name="teste-pu"
+	<persistence-unit name="appweb"
 		transaction-type="RESOURCE_LOCAL">
 
 		<properties>
