@@ -69,7 +69,7 @@ public class ProcurarTarefasBean {
 
 		tarefasEncontradas = dao.buscarTarefa(limiteBusca, tituloBusca, responsavelBusca, situacaoBusca);
 
-		return ""; // waiting
+		return "/procurar-tarefa.xhtml"; // waiting
 	}
 
 	public TarefaDao getDao() {

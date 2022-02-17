@@ -1,0 +1,105 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui" template="/template.xhtml">
+
+	<h1 class="titulo">Buscar Tarefas</h1>
+	<div id="inside">
+		<h:form enctype="multipart/form-data">
+			<h:messages />
+		</h:form>
+
+		<h:form prependId="false" style=" margin: 0 0%;">
+
+			<div class="formU">
+				<div>
+					<h:outputLabel for="limiteBusca" value="Limite :" />
+					<p:inputText id="limiteBusca"
+						value="#{procurarTarefasBean.limiteBusca}" />
+				</div>
+
+				<div>
+					<h:outputLabel for="tituloBusca" value="Titulo :" />
+					<p:inputText id="tituloBusca"
+						value="#{procurarTarefasBean.tituloBusca}" />
+				</div>
+
+				<div>
+					<h:outputLabel for="responsavelBusca" value="Responsavel:" />
+					<h:selectOneMenu value="#{procurarTarefasBean.responsavelBusca}"
+						id="responsavelBusca">
+						<f:selectItem itemValue="" itemLabel="--SELECIONE--"
+							itemDescription="--SELECIONE--" />
+						<f:selectItem itemValue="João" itemLabel="João"
+							itemDescription="João" />
+						<f:selectItem itemValue="Maria" itemLabel="Maria"
+							itemDescription="Maria" />
+						<f:selectItem itemValue="José" itemLabel="José"
+							itemDescription="José" />
+						<f:selectItem itemValue="Pedro" itemLabel="Pedro"
+							itemDescription="Pedro" />
+						<f:selectItem itemValue="Lucas" itemLabel="Lucas"
+							itemDescription="Lucas" />
+					</h:selectOneMenu>
+				</div>
+				<div>
+					<h:outputLabel for="situacaoBusca" value="Situacao:" />
+					<h:selectOneMenu value="#{procurarTarefasBean.situacaoBusca}"
+						id="situacaoBusca">
+						<f:selectItem itemValue="true" itemLabel="Concluida"
+							itemDescription="Concluida" />
+						<f:selectItem itemValue="false" itemLabel="Em Andamento"
+							itemDescription="Em Andamento" />
+					</h:selectOneMenu>
+
+				</div>
+
+				<h:commandButton class="botaoBuscar" value="Buscar"
+					action="#{procurarTarefasBean.encontrar}" />
+			</div>
+
+			<h:panelGroup
+				rendered="#{empty  buscaTarefasMBeanMBean.tarefasEncontradas}">
+				<br />
+
+			</h:panelGroup>
+
+			<h:panelGroup
+				rendered="#{not empty procurarTarefasBean.tarefasEncontradas}">
+
+				<h:messages />
+				<p:dataTable var="v"
+					value="#{procurarTarefasBean.tarefasEncontradas}">
+					<p:column headerText="Titulo">
+						<h:outputText value="#{v.titulo}" />
+					</p:column>
+
+					<p:column headerText="Descrição">
+						<h:outputText value="#{v.descricao}" />
+					</p:column>
+					<p:column headerText="Responsável">
+						<h:outputText value="#{v.responsavel}" />
+					</p:column>
+					<p:column headerText="Situacao">
+						<h:outputText value="#{(v.completa)?'Concluida':'Em andamento'}" />
+					</p:column>
+					<p:column headerText="Opções">
+						<h:commandButton class="botao" value="Editar"
+							action="#{cadastrarTarefaMBean.editarTarefa(v)}" />
+						<h:commandButton class="botao" value="Mudar situacao"
+							action="#{procurarTarefasBean.alterarSituacao(v)}" />
+						<h:commandButton class="botao" value="Remover"
+							action="#{procurarTarefasBean.removerTarefa(v)}"
+							onclick="if (!confirm('Deseja realmente remover a tarefa selecionada?')) return false;" />
+
+					</p:column>
+				</p:dataTable>
+
+			</h:panelGroup>
+
+		</h:form>
+	</div>
+
+</ui:composition>

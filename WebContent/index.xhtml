@@ -4,32 +4,31 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui" template="template.xhtml">
-	
-	<div >
+	<div id="inside">
 
-		<h1 > Criar Tarefa</h1>
-		<h:form >
-			<h:inputHidden  />
-			<h:inputHidden  />
+		<h1 style="font-size: 40px">Criar Tarefa</h1>
+		<h:form enctype="multipart/form-data" style="margin: 0px auto;">
+			<h:inputHidden value="#{cadastrarTarefaBean.tarefa.id}" />
+			<h:inputHidden value="#{cadastrarTarefaBean.tarefa.completa}" />
 			<h:messages />
-			<div >
+			<div class="formulario">
 				<div>
 					<h:outputLabel for="titulo" value="Título: *" />
-					<h:inputText 
-						 />
+					<h:inputText id="titulo"
+						value="#{cadastrarTarefaBean.tarefa.titulo}" />
 				</div>
 				<div>
 					<h:outputLabel for="descricao" value="Descrição: *" />
 					<h:inputText id="descricao"
-						 />
+						value="#{cadastrarTarefaBean.tarefa.descricao}" />
 				</div>
 				<div class="double-input">
 					<h:outputLabel for="data" value="Deadline: *" />
 					<p:calendar id="data"
-						 />
+						value="#{cadastrarTarefaBean.tarefa.deadline}" />
 					<h:outputLabel for="prioridade" value="Prioridade: *" />
 					<h:selectOneMenu id="prioridade"
-						>
+						value="#{cadastrarTarefaBean.tarefa.prioridade}">
 						<f:selectItem itemLabel="Baixa" itemValue="Baixa" />
 						<f:selectItem itemLabel="Media" itemValue="Media" />
 						<f:selectItem itemLabel="Alta" itemValue="Alta" />
@@ -37,7 +36,7 @@
 				</div>
 				<div>
 					<h:outputLabel for="responsavel" value="Responsável: *" />
-					<h:selectOneMenu "
+					<h:selectOneMenu value="#{cadastrarTarefaBean.tarefa.responsavel}"
 						id="responsavel">
 						<f:selectItem itemValue="" itemLabel="--SELECIONE--"
 							itemDescription="--SELECIONE--" />
@@ -54,7 +53,7 @@
 					</h:selectOneMenu>
 				</div>
 				<h:commandButton class="botao" value="Enviar"
-					 />
+					action="#{cadastrarTarefaBean.cadastrar}" />
 			</div>
 		</h:form>
 	</div>
