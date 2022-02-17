@@ -63,12 +63,13 @@ public class ProcurarTarefasBean {
 	public boolean isSituacaoBusca() {
 		return situacaoBusca;
 	}
+
 	public String encontrar() {
 		dao = new TarefaDao();
 
 		tarefasEncontradas = dao.buscarTarefa(limiteBusca, tituloBusca, responsavelBusca, situacaoBusca);
 
-		return ""; //waiting
+		return ""; // waiting
 	}
 
 	public TarefaDao getDao() {
@@ -96,7 +97,6 @@ public class ProcurarTarefasBean {
 
 				em.getTransaction().rollback();
 		}
-
 		return encontrar();
 	}
 

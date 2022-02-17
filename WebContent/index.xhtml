@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="template.xhtml">
+	
+	<div >
+
+		<h1 > Criar Tarefa</h1>
+		<h:form >
+			<h:inputHidden  />
+			<h:inputHidden  />
+			<h:messages />
+			<div >
+				<div>
+					<h:outputLabel for="titulo" value="Título: *" />
+					<h:inputText 
+						 />
+				</div>
+				<div>
+					<h:outputLabel for="descricao" value="Descrição: *" />
+					<h:inputText id="descricao"
+						 />
+				</div>
+				<div class="double-input">
+					<h:outputLabel for="data" value="Deadline: *" />
+					<p:calendar id="data"
+						 />
+					<h:outputLabel for="prioridade" value="Prioridade: *" />
+					<h:selectOneMenu id="prioridade"
+						>
+						<f:selectItem itemLabel="Baixa" itemValue="Baixa" />
+						<f:selectItem itemLabel="Media" itemValue="Media" />
+						<f:selectItem itemLabel="Alta" itemValue="Alta" />
+					</h:selectOneMenu>
+				</div>
+				<div>
+					<h:outputLabel for="responsavel" value="Responsável: *" />
+					<h:selectOneMenu "
+						id="responsavel">
+						<f:selectItem itemValue="" itemLabel="--SELECIONE--"
+							itemDescription="--SELECIONE--" />
+						<f:selectItem itemValue="João" itemLabel="João"
+							itemDescription="João" />
+						<f:selectItem itemValue="Maria" itemLabel="Maria"
+							itemDescription="Maria" />
+						<f:selectItem itemValue="José" itemLabel="José"
+							itemDescription="José" />
+						<f:selectItem itemValue="Pedro" itemLabel="Pedro"
+							itemDescription="Pedro" />
+						<f:selectItem itemValue="Lucas" itemLabel="Lucas"
+							itemDescription="Lucas" />
+					</h:selectOneMenu>
+				</div>
+				<h:commandButton class="botao" value="Enviar"
+					 />
+			</div>
+		</h:form>
+	</div>
+</ui:decorate>

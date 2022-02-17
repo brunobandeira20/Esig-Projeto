@@ -26,14 +26,9 @@ public class CadastrarTarefaBean {
 		this.tarefa = tarefa;
 	}
 
-	public String entrarEdicaotarefas(Tarefa tarefa) {
-		this.tarefa = tarefa; 
-		return "";
-	}
-
 	public String editarTarefa(Tarefa tarefa) {
 		this.tarefa = tarefa; 
-		return "";
+		return "/index.xhtml";
 	}
 	public String cadastrar() {
 		EntityManager gerenciador = Database.getInstance().getEntityManager();
